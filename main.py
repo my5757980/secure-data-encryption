@@ -55,7 +55,7 @@ class SecureEncryption:
         if salt is None:
             salt = secrets.token_bytes(16)
         
-        kdf = PBKDF2(
+        kdf = hashlib.pbkdf2_hmac(
             algorithm=hashes.SHA256(),
             length=32,
             salt=salt,
